@@ -1,9 +1,6 @@
 name: jest-and-docker-ci
 
-on:
-  push:
-    branches:
-      - "main"
+on: push
 
 jobs:
   test-front:
@@ -15,6 +12,7 @@ jobs:
         run: cd client && npm i && npm test
   docker:
     needs: test-front
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
