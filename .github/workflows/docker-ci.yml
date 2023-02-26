@@ -23,4 +23,3 @@ jobs:
         with:
           push: true
           context: "{{defaultContext}}:server"
-          tags: user/quete1902:latest
